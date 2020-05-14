@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "464111666582",
+    "firebase_url": "https://zuzu-demo.firebaseio.com",
+    "project_id": "zuzu-demo",
+    "storage_bucket": "zuzu-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464111666582:android:dbe21bad7350f260e2c9b7",
+        "android_client_info": {
+          "package_name": "com.preetanshumishra.zuzudemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464111666582-van5j5pja7b7dbkafa38kltbha0mnbhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrTO_CP_AcV-xSthl2_raknZCgM-Su3wM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464111666582-van5j5pja7b7dbkafa38kltbha0mnbhg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "464111666582-q6avtj13um8q3ksr2br11pbdmq07nf9k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.preetanshumishra.zuzudemo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

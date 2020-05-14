@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>464111666582-q6avtj13um8q3ksr2br11pbdmq07nf9k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.464111666582-q6avtj13um8q3ksr2br11pbdmq07nf9k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBC58SWafn4NS2HSw0xoHuBnzfW1ZNeeb0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>464111666582</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.preetanshumishra.zuzudemo</string>
+	<key>PROJECT_ID</key>
+	<string>zuzu-demo</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zuzu-demo.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:464111666582:ios:06aa82d90d2b5c59e2c9b7</string>
+	<key>DATABASE_URL</key>
+	<string>https://zuzu-demo.firebaseio.com</string>
+</dict>
+</plist>
