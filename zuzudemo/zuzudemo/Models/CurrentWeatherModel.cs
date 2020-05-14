@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace zuzudemo.Models
 {
-    public partial class LocationModel
+    public class CurrentWeatherModel
     {
         public Request Request { get; set; }
         public Location Location { get; set; }
         public Current Current { get; set; }
     }
 
-    public partial class Current
+    public class Current
     {
         public string ObservationTime { get; set; }
         public long Temperature { get; set; }
@@ -30,7 +30,7 @@ namespace zuzudemo.Models
         public string IsDay { get; set; }
     }
 
-    public partial class Location
+    public class Location
     {
         public string Name { get; set; }
         public string Country { get; set; }
@@ -43,7 +43,7 @@ namespace zuzudemo.Models
         public string UtcOffset { get; set; }
     }
 
-    public partial class Request
+    public class Request
     {
         public string Type { get; set; }
         public string Query { get; set; }

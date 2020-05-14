@@ -23,7 +23,7 @@ namespace zuzudemo.Services.Implementations
             return client;
         }
 
-        public async Task<LocationModel> GetWeatherForLocation(string location)
+        public async Task<CurrentWeatherModel> GetCurrentWeatherForLocation(string location)
         {
             HttpClient client = GetRequest(AppConstants.WeatherStackBaseUrl);
 
@@ -35,7 +35,53 @@ namespace zuzudemo.Services.Implementations
             if (response.IsSuccessStatusCode)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<LocationModel>(responseContent);
+                var result = JsonConvert.DeserializeObject<CurrentWeatherModel>(responseContent);
+                return result;
+            }
+            else
+            {
+                Console.WriteLine("Api Error");
+            }
+
+            return null;
+        }
+
+        public async Task<CurrentWeatherModel> GetHistoricalWeatherForLocation(string location, string date)
+        {
+            HttpClient client = GetRequest(AppConstants.WeatherStackBaseUrl);
+
+            var queryParams = $"historical?access_key={AppConstants.WeatherStackAccessKey}&query={location}&historical_date={date}";
+
+            var httpMessage = new HttpRequestMessage(HttpMethod.Get, AppConstants.WeatherStackBaseUrl + queryParams);
+
+            HttpResponseMessage response = await client.SendAsync(httpMessage, default(CancellationToken));
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<CurrentWeatherModel>(responseContent);
+                return result;
+            }
+            else
+            {
+                Console.WriteLine("Api Error");
+            }
+
+            return null;
+        }
+
+        public async Task<CurrentWeatherModel> GetForecastWeatherForLocation(string location, string days)
+        {
+            HttpClient client = GetRequest(AppConstants.WeatherStackBaseUrl);
+
+            var queryParams = $"forecast?access_key={AppConstants.WeatherStackAccessKey}&query={location}&forecast_days={days}";
+
+            var httpMessage = new HttpRequestMessage(HttpMethod.Get, AppConstants.WeatherStackBaseUrl + queryParams);
+
+            HttpResponseMessage response = await client.SendAsync(httpMessage, default(CancellationToken));
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<CurrentWeatherModel>(responseContent);
                 return result;
             }
             else

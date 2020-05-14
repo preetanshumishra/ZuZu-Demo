@@ -5,6 +5,10 @@ namespace zuzudemo.Services.Contracts
 {
     public interface IWeatherStackService
     {
-        Task<LocationModel> GetWeatherForLocation(string location);
+        Task<CurrentWeatherModel> GetCurrentWeatherForLocation(string location);
+
+        Task<CurrentWeatherModel> GetHistoricalWeatherForLocation(string location, string date);
+
+        Task<CurrentWeatherModel> GetForecastWeatherForLocation(string location, string days);
     }
 }
