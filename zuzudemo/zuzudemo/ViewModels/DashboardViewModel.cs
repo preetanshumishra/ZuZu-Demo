@@ -12,7 +12,7 @@ namespace zuzudemo.ViewModels
         private readonly IFirebaseService _firebaseService;
         private readonly IWeatherStackService _weatherStackService;
 
-        private LocationModel locationData;
+        private CurrentWeatherModel locationData;
 
         private string _location;
         public string Location
@@ -47,7 +47,7 @@ namespace zuzudemo.ViewModels
 
         private async void GetUserAndLocation(UserModel user)
         {
-            locationData = await _weatherStackService.GetWeatherForLocation(user.Location);
+            locationData = await _weatherStackService.GetCurrentWeatherForLocation(user.Location);
             Location = $"{locationData.Location.Name}, {locationData.Location.Region}, {locationData.Location.Country}";
             Console.WriteLine("Got Weather");
         }
