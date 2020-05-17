@@ -5,12 +5,12 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" x:Class="zuzudemo.Views.DashboardView">
-    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="20">
-        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Label Text="{Binding Location}" BackgroundColor="Red" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+    <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
+        <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                <Label Text="{Binding Location}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
         </StackLayout>
-        <StackLayout>
-
-        </StackLayout>
-    </StackLayout>
+        <ActivityIndicator AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" IsRunning="{Binding IsLoading}" IsEnabled="{Binding IsLoading}" IsVisible="{Binding IsLoading}"/>
+    </AbsoluteLayout>
 </ContentPage>

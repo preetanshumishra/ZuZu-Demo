@@ -17,7 +17,7 @@ namespace zuzudemo.ViewModels
             set
             {
                 _username = value;
-                SetProperty(ref _username, value);
+                RaisePropertyChanged(nameof(Username));
             }
         }
 
@@ -31,7 +31,21 @@ namespace zuzudemo.ViewModels
             set
             {
                 _password = value;
-                SetProperty(ref _password, value);
+                RaisePropertyChanged(nameof(Password));
+            }
+        }
+
+        private bool _isLoading;
+        public bool IsLoading
+        {
+            get
+            {
+                return _isLoading;
+            }
+            set
+            {
+                _isLoading = value;
+                RaisePropertyChanged(nameof(IsLoading));
             }
         }
 
@@ -51,8 +65,9 @@ namespace zuzudemo.ViewModels
 
         private async void Login()
         {
-            var user = await _firebaseService.GetUser(_username);
-            if (user != null)
+            IsLoading = true;
+            var user = await _firebaseService.GetUser(_username.ToLower());
+            if (user != null && user.Password == _password.ToLower())
             {
                 var navParam = new NavigationParameters();
                 navParam.Add("User", user);
@@ -62,11 +77,14 @@ namespace zuzudemo.ViewModels
             {
                 GotoSignUp();
             }
+            IsLoading = false;
         }
 
         private async void GotoSignUp()
         {
+            IsLoading = true;
             await _navigationService.NavigateAsync("SignUpView");
+            IsLoading = false;
         }
     }
 }

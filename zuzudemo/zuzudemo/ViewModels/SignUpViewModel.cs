@@ -20,7 +20,7 @@ namespace zuzudemo.ViewModels
             set
             {
                 _username = value;
-                SetProperty(ref _username, value);
+                RaisePropertyChanged(nameof(Username));
             }
         }
 
@@ -34,7 +34,21 @@ namespace zuzudemo.ViewModels
             set
             {
                 _password = value;
-                SetProperty(ref _password, value);
+                RaisePropertyChanged(nameof(Password));
+            }
+        }
+
+        private bool _isLoading;
+        public bool IsLoading
+        {
+            get
+            {
+                return _isLoading;
+            }
+            set
+            {
+                _isLoading = value;
+                RaisePropertyChanged(nameof(IsLoading));
             }
         }
 
@@ -101,8 +115,10 @@ namespace zuzudemo.ViewModels
 
         private async void SignUp()
         {
+            IsLoading = true;
             bool userRegistered = await _firebaseService.AddUser(_username, _password, placemark.Locality);
             if (userRegistered) await _navigationService.GoBackAsync();
+            IsLoading = false;
         }
     }
 }

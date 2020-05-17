@@ -6,5 +6,6 @@
         public const string ErrorText = "Username or Password cannot be empty!";
         public const string WeatherStackAccessKey = "60b50e3d7c841ab4effe6e60701998d0";
         public const string WeatherStackBaseUrl = "http://api.weatherstack.com/";
+        public const string MockBaseUrl = "http://demo1463225.mockable.io/";
     }
 }

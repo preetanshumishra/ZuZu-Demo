@@ -5,10 +5,13 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" x:Class="zuzudemo.Views.SignUpView">
-    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
-        <Label Text="Sign Up!" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
-        <Entry Placeholder="Username" Text="{Binding Username}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
-        <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
-        <Button Text="Sign Up" Command="{Binding SignUpCommand}" HorizontalOptions="FillAndExpand"/>
-    </StackLayout>
+    <AbsoluteLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
+        <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <Label Text="Sign Up!" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+            <Entry Placeholder="Username" Text="{Binding Username}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+            <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Sign Up" Command="{Binding SignUpCommand}" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <ActivityIndicator AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" IsRunning="{Binding IsLoading}" IsEnabled="{Binding IsLoading}" IsVisible="{Binding IsLoading}"/>
+    </AbsoluteLayout>
 </ContentPage>
