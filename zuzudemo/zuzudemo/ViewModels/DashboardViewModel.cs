@@ -12,7 +12,8 @@ namespace zuzudemo.ViewModels
         private readonly IFirebaseService _firebaseService;
         private readonly IWeatherStackService _weatherStackService;
 
-        private CurrentWeatherModel locationData;
+        private WeatherModel currentWeatherData;
+        private WeatherModel forecastWeatherData;
 
         private string _location;
         public string Location
@@ -24,7 +25,21 @@ namespace zuzudemo.ViewModels
             set
             {
                 _location = value;
-                SetProperty(ref _location, value);
+                RaisePropertyChanged(nameof(Location));
+            }
+        }
+
+        private bool _isLoading;
+        public bool IsLoading
+        {
+            get
+            {
+                return _isLoading;
+            }
+            set
+            {
+                _isLoading = value;
+                RaisePropertyChanged(nameof(IsLoading));
             }
         }
 
@@ -47,9 +62,12 @@ namespace zuzudemo.ViewModels
 
         private async void GetUserAndLocation(UserModel user)
         {
-            locationData = await _weatherStackService.GetCurrentWeatherForLocation(user.Location);
-            Location = $"{locationData.Location.Name}, {locationData.Location.Region}, {locationData.Location.Country}";
+            IsLoading = true;
+            currentWeatherData = await _weatherStackService.GetCurrentWeatherForLocation(user.Location);
+            forecastWeatherData = await _weatherStackService.GetForecastWeatherForLocation("Chanhassen", "4");
+            Location = $"{currentWeatherData.Location.Name}, {currentWeatherData.Location.Region}, {currentWeatherData.Location.Country}";
             Console.WriteLine("Got Weather");
+            IsLoading = false;
         }
     }
 }
