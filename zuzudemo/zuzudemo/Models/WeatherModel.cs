@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace zuzudemo.Models
 {
@@ -13,21 +14,37 @@ namespace zuzudemo.Models
 
     public class Current
     {
+        [JsonProperty("observation_time")]
         public string ObservationTime { get; set; }
+        [JsonProperty("temperature")]
         public long Temperature { get; set; }
+        [JsonProperty("weather_code")]
         public long WeatherCode { get; set; }
-        public List<Uri> WeatherIcons { get; set; }
+        [JsonProperty("weather_icons")]
+        public List<string> WeatherIcons { get; set; }
+        [JsonProperty("weather_descriptions")]
         public List<string> WeatherDescriptions { get; set; }
+        [JsonProperty("wind_speed")]
         public long WindSpeed { get; set; }
+        [JsonProperty("wind_degree")]
         public long WindDegree { get; set; }
+        [JsonProperty("wind_dir")]
         public string WindDir { get; set; }
+        [JsonProperty("pressure")]
         public long Pressure { get; set; }
+        [JsonProperty("precip")]
         public double Precip { get; set; }
+        [JsonProperty("humidity")]
         public long Humidity { get; set; }
+        [JsonProperty("cloudcover")]
         public long Cloudcover { get; set; }
+        [JsonProperty("feelslike")]
         public long Feelslike { get; set; }
+        [JsonProperty("uv_index")]
         public long UvIndex { get; set; }
+        [JsonProperty("visibility")]
         public long Visibility { get; set; }
+        [JsonProperty("is_day")]
         public string IsDay { get; set; }
     }
 
