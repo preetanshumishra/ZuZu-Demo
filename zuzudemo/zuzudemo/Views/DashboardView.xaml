@@ -7,8 +7,35 @@
     mc:Ignorable="d" x:Class="zuzudemo.Views.DashboardView">
     <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
         <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
-                <Label Text="{Binding Location}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+            <StackLayout BackgroundColor="{Binding BackgroundColor}" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="20">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                    <Image HorizontalOptions="Start" VerticalOptions="Center" Source="{Binding CurrentIcon}"/>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{Binding Location}" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="{Binding LocalTime}" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="{Binding Description}" HorizontalOptions="StartAndExpand"/>
+                    </StackLayout>
+                    <Label Text="{Binding Temperature}" HorizontalOptions="End" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                    <Label Text="{Binding Humidity}" HorizontalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{Binding FeelsLike}" HorizontalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout BackgroundColor="{Binding BackgroundColor}" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0, 15, 0, 0" Padding="20">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                    <Image HorizontalOptions="Start" VerticalOptions="Center" Source="{Binding CurrentIcon}"/>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{Binding Location}" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="{Binding LocalTime}" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="{Binding Description}" HorizontalOptions="StartAndExpand"/>
+                    </StackLayout>
+                    <Label Text="{Binding Temperature}" HorizontalOptions="End" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                    <Label Text="{Binding Humidity}" HorizontalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{Binding FeelsLike}" HorizontalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
         <ActivityIndicator AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" IsRunning="{Binding IsLoading}" IsEnabled="{Binding IsLoading}" IsVisible="{Binding IsLoading}"/>
